@@ -18,6 +18,7 @@ public class TrafficUpdatesGUI extends JFrame {
         String[] categories = GetInformation.getCategories();
         buttons = new JButton[categories.length + 1];
         setSize(600, (1 + categories.length) * 100);
+
         for (int i = 0; i < buttons.length; i++) {
             JButton button;
             if (i < categories.length) {
@@ -29,7 +30,7 @@ public class TrafficUpdatesGUI extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new CategoryGUI(button.getText()).setVisible(true);;
+                    new CategoryGUI(button.getText()).setVisible(true);
                 }
             });
             JSeparator s = new JSeparator();
@@ -37,6 +38,13 @@ public class TrafficUpdatesGUI extends JFrame {
             add(s);
             add(button);
         }
+        JLabel bigLabel = new JLabel("SouthTyrolTraffic");
+        bigLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        bigLabel.setBounds(80, 100, 250, 30);
+        add(bigLabel);
+        JLabel smallLabel = new JLabel("created by Florian Tschimben");
+        smallLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        smallLabel.setBounds(100, 170, 200, 20);
+        add(smallLabel);
     }
 }
-
